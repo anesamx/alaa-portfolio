@@ -11,7 +11,7 @@ const Hero = () => {
       className="flex flex-col items-center justify-center min-h-screen text-center text-white bg-cover bg-center hero-bg"
     >
       <h1 className="text-8xl font-story-script">Alaa's Portfolio</h1>
-      <p className="mt-4 text-xl font-lato">i draw art with mous why u dotn try ? </p>
+      <p className="mt-4 text-xl font-lato">i draw art with mous why u DONT TRY </p>
 
       <div className="flex items-center justify-center mt-8 space-x-6">
         <a
