@@ -1,5 +1,4 @@
-
-import React, { useState, useMemo, useCallback } from 'react';
+import { useState, useMemo, useCallback } from 'react';
 import Modal from 'react-modal';
 import { motion } from 'framer-motion';
 import { imageUrls } from '../../data/gallery-images';

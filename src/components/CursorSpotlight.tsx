@@ -1,11 +1,10 @@
+import { useState, useEffect } from 'react';
 
-import React, { useState, useEffect } from 'react';
-
-const CursorSpotlight = ({ isEnabled }) => {
+const CursorSpotlight = ({ isEnabled }: { isEnabled: boolean }) => {
   const [position, setPosition] = useState({ x: -200, y: -200 });
 
   useEffect(() => {
-    const handleMouseMove = (e) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
     };
 

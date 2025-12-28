@@ -9,7 +9,7 @@ const navLinks = [
   { to: 'support', label: 'Support' },
 ];
 
-const Header = ({ onResetCanvas }) => {
+const Header = ({ onResetCanvas }: { onResetCanvas: () => void }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isOpen, setIsOpen] = useState(false);
 
