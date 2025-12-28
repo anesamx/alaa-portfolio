@@ -1,0 +1,8 @@
+{
+  "projects": {
+    "default": "webpage-simplifier",
+    "dev": "webpage-simplifier"
+  },
+  "targets": {},
+  "etags": {}
+}
