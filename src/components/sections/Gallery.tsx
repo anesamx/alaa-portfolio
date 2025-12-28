@@ -85,7 +85,7 @@ const Gallery = () => {
 
       {/* --- Single Scrolling Row --- */}
       <div className="space-y-4">
-        <div className="scrolling-row animation-duration-45s">
+        <div className="scrolling-row animation-duration-90s">
           {scrollingRowItems.map((item, index) => (
             <motion.div
               key={`${item.id}-${index}`}
@@ -104,7 +104,7 @@ const Gallery = () => {
       <Modal
         isOpen={isAllProjectsModalOpen}
         onRequestClose={closeAllProjectsModal}
-        className="bg-gray-900/90 backdrop-blur-lg fixed top-0 left-0 w-full h-full flex flex-col items-center p-4 z-[100] overflow-y-auto"
+        className="bg-transparent backdrop-blur-lg fixed top-0 left-0 w-full h-full flex flex-col items-center p-4 z-[100] overflow-y-auto"
         overlayClassName="fixed top-0 left-0 w-full h-full bg-black bg-opacity-80 z-[99]"
         ariaHideApp={false}
       >
