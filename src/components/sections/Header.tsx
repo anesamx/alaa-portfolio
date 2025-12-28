@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { FaBroom } from 'react-icons/fa';
 
 const navLinks = [
   { to: 'home', label: 'Home' },
@@ -26,7 +27,7 @@ const Header = ({ onResetCanvas }: { onResetCanvas: () => void }) => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-gray-900/80 backdrop-blur-lg shadow-xl' : 'bg-transparent'
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/50 backdrop-blur-lg shadow-xl' : 'bg-transparent'
         }`}
     >
       <div className="container mx-auto px-6 py-4 flex justify-between items-center">
@@ -48,15 +49,18 @@ const Header = ({ onResetCanvas }: { onResetCanvas: () => void }) => {
             </Link>
           ))}
            <button onClick={onResetCanvas} className="text-white focus:outline-none">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" /></svg>
+            <FaBroom className="h-6 w-6" />
           </button>
         </nav>
 
-        {/* Mobile Navigation Button */}
-        <div className="md:hidden">
+        {/* Mobile Navigation */}
+        <div className="md:hidden flex items-center space-x-4">
+          <button onClick={onResetCanvas} className="text-white focus:outline-none">
+            <FaBroom className="h-6 w-6" />
+          </button>
           <button onClick={() => setIsOpen(!isOpen)} className="text-white focus:outline-none">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={!isOpen ? "M4 6h16M4 12h16m-7 6h7" : "M6 18L18 6M6 6l12 12"}></path>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d={!isOpen ? "M4 6h16M4 12h16m-7-6h7" : "M6 18L18 6M6 6l12 12"}></path>
             </svg>
           </button>
         </div>
@@ -66,7 +70,7 @@ const Header = ({ onResetCanvas }: { onResetCanvas: () => void }) => {
       <motion.div
         initial={{ height: 0 }}
         animate={{ height: isOpen ? 'auto' : 0 }}
-        className="md:hidden overflow-hidden bg-gray-900/90 backdrop-blur-lg"
+        className="md:hidden overflow-hidden bg-black/80 backdrop-blur-lg"
       >
         <nav className="flex flex-col items-center px-4 py-6 space-y-4">
           {navLinks.map(link => (

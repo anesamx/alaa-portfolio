@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Header from './components/sections/Header';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
@@ -10,7 +10,7 @@ import InteractiveBackground from './components/effects/InteractiveBackground';
 
 function App() {
   const [loading, setLoading] = useState(true);
-  const [resetCanvasKey, setResetCanvasKey] = useState(0);
+  const interactiveBackgroundRef = useRef<{ clearCanvas: () => void }>(null);
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -20,9 +20,11 @@ function App() {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleResetCanvas = useCallback(() => {
-    setResetCanvasKey(prevKey => prevKey + 1);
-  }, []);
+  const handleResetCanvas = () => {
+    if (interactiveBackgroundRef.current) {
+      interactiveBackgroundRef.current.clearCanvas();
+    }
+  };
 
   if (loading) {
     return <Loading />;
@@ -35,7 +37,7 @@ function App() {
 
       {/* Interactive Painting Canvas (Middle Layer) */}
       <div className="fixed top-0 left-0 w-screen h-screen z-10 overflow-hidden">
-        <InteractiveBackground key={resetCanvasKey} />
+        <InteractiveBackground ref={interactiveBackgroundRef} />
       </div>
 
       {/* Main Content (Top Layer) */}

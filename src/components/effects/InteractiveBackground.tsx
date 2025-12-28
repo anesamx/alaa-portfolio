@@ -1,6 +1,6 @@
-import { useRef, useEffect, useCallback } from 'react';
+import { useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from 'react';
 
-const InteractiveBackground = () => {
+const InteractiveBackground = forwardRef((props, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isDrawing = useRef(false);
   const lastPos = useRef<{ x: number, y: number } | null>(null);
@@ -49,6 +49,18 @@ const InteractiveBackground = () => {
     hue.current = (hue.current + 1) % 360;
 
   }, []);
+
+  const clearCanvas = () => {
+    const canvas = canvasRef.current;
+    const ctx = canvas?.getContext('2d');
+    if (ctx && canvas) {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  };
+
+  useImperativeHandle(ref, () => ({
+    clearCanvas,
+  }));
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -100,6 +112,6 @@ const InteractiveBackground = () => {
       }}
     />
   );
-};
+});
 
 export default InteractiveBackground;
