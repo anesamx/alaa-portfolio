@@ -1,6 +1,6 @@
 import { useRef, useEffect, useCallback, forwardRef, useImperativeHandle } from 'react';
 
-const InteractiveBackground = forwardRef((props, ref) => {
+const InteractiveBackground = forwardRef((_, ref) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const isDrawing = useRef(false);
   const lastPos = useRef<{ x: number, y: number } | null>(null);
