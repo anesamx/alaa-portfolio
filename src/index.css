@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Playfair+Display:wght@700&family=Dancing+Script:wght@700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 1. Make the selection highlight transparent everywhere by default */
+::selection {
+  background: transparent;
+  color: inherit;
+}
+::-moz-selection { /* For Firefox */
+  background: transparent;
+  color: inherit;
+}
+
+/* 2. Re-enable normal text selection behavior only for form inputs */
+input,
+textarea {
+  -webkit-user-select: text; /* Safari */
+  -ms-user-select: text; /* IE 10 and IE 11 */
+  user-select: text; /* Standard syntax */
+}
+
+/* 3. Restore the visible highlight specifically for those form inputs */
+input::selection,
+textarea::selection {
+    background-color: #007bff; /* A standard blue highlight color */
+    color: white;
+}
+input::-moz-selection,
+textarea::-moz-selection {
+    background-color: #007bff;
+    color: white;
+}
+
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    body {
+        /* Apply base styles and disable user selection for the main body */
+        @apply bg-gray-900 text-gray-200 leading-normal;
+        background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39tbW1+fn5oaGhvb29lZWVpaWmNjY1paWlQUFBXV1d4eHtCNnWMAAAANElEQVR42u3OSQEAAAgDoC2/460w02wSoEJElv4B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wF25AATb6L/tAAAAABJRU5ErkJggg==');
+        -webkit-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}
+
+.hero-bg {
+  background-image: url('https://i.pinimg.com/originals/2c/e3/a8/2ce3a835ed7977762771da45787d5771.gif');
+}
+
+.animation-delay-neg-5s {
+  animation-delay: -5s;
+}
+
+.animation-delay-neg-10s {
+  animation-delay: -10s;
+}
+
+.animation-delay-neg-15s {
+  animation-delay: -15s;
+}
+
+.animation-delay-neg-20s {
+  animation-delay: -20s;
+}
+
+.textured-background {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAMAAAAp4XiDAAAAUVBMVEWFhYWDg4N3d3dtbW17e3t1dXWBgYGHh4d5eXlzc3OLi4ubm5uVlZWPj4+NjY19fX2JiYl/f39tbW1+fn5oaGhvb29lZWVpaWmNjY1paWlQUFBXV1d4eHtCNnWMAAAANElEQVR42u3OSQEAAAgDoC2/460w02wSoEJElv4B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wH/Af8B/wF25AATb6L/tAAAAABJRU5ErkJggg==');
+}
+
+@keyframes scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.scrolling-row {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  animation: scroll linear infinite;
+}
+
+.animation-duration-30s {
+  animation-duration: 30s;
+}
+
+.animation-duration-45s {
+  animation-duration: 45s;
+}
+
+.animation-duration-35s {
+  animation-duration: 35s;
+}
